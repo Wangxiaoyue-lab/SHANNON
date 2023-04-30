@@ -1,6 +1,5 @@
-Yes, you look like the barefoot girl when you suffer those haunted bugs.
+please do not copy other's words directly.
 
+You can write the link and your comments!
 
 ![SHANNON's mouse.jpg](./SHANNON/Picture/shannons-mouse_optjpeg.jpg)
-
- 
