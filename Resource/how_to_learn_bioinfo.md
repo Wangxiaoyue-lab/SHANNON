@@ -25,10 +25,14 @@
 # How to learn single cell RNAseq
 
 - [Scanpy – Single-Cell Analysis in Python](https://scanpy.readthedocs.io/en/stable/index.html)
-* [sc-best-practices / for python users](https://www.sc-best-practices.org/) # Further development of scanpy
+- [sc-best-practices / for python users](https://www.sc-best-practices.org/) # Further development of scanpy
 - [Seurat official](https://satijalab.org/seurat/)
 - [Sanger institute](https://www.singlecellcourse.org/)
 - [Harvard hbc](https://github.com/hbctraining) # including scRNA-seq, R, shell, rna-seq. Recommended for beginners.
 - [A great book on exclusively the Bioconductor ecosystem](https://bioconductor.org/books/release/OSCA/) # not recommended. SCE is not well developed as Seurat
+- [NBIS is a distributed national bioinformatics infrastructure, supporting life sciences in Sweden.](https://nbisweden.github.io/workshop-scRNAseq/exercises.html) # including scRNA-seq, R, shell, rna-seq. Recommended for beginners but may not as good as Harvard
 
-[gao-lab/Guideline-for-Computational-Biology-and-Bioinformatics (github.com)](https://github.com/gao-lab/Guideline-for-Computational-Biology-and-Bioinformatics)
+- [gao-lab/Guideline-for-Computational-Biology-and-Bioinformatics](https://github.com/gao-lab/Guideline-for-Computational-Biology-and-Bioinformatics)
+
+- youtube
+<https://www.youtube.com/@sanbomics>
