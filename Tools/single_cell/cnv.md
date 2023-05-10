@@ -51,6 +51,7 @@
 
 # Comments
 
+- 不是所有的肿瘤都存在CNV。儿童肿瘤和血液肿瘤中基本没有copy number event，所以是不适合用这些方法（copyKAT或inferCNV）来寻找肿瘤细胞的
 - cnv有三种
 
   * Copy gain
