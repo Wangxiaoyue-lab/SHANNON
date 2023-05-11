@@ -13,12 +13,17 @@
 # How to learn python
 
 * [Python-100-Days](https://github.com/jackfrued/Python-100-Days)
+* [数学语言辞典，MATLAB/Python/NumPy/R中的同义命令](https://mathesaurus.sourceforge.net/)
 
 # How to learn statstics
 
 # How to learn maching learning
 
-[lovingers/ML_Books: 宗旨：构建全球最大的ML相关的学习书籍平台（吹个大牛） (github.com)](https://github.com/lovingers/ML_Books)
+[lovingers/ML_Books: 宗旨：构建全球最大的ML相关的学习书籍平台（吹牛的） (github.com)](https://github.com/lovingers/ML_Books)
+
+[3Blue1Brown(数学原理可视化)](https://www.3blue1brown.com/#lessons)
+
+[Immersive Math(线代运算可视化)](http://immersivemath.com/ila/index.html)
 
 # How to learn omics
 
@@ -30,9 +35,8 @@
 - [Sanger institute](https://www.singlecellcourse.org/)
 - [Harvard hbc](https://github.com/hbctraining) # including scRNA-seq, R, shell, rna-seq. Recommended for beginners.
 - [A great book on exclusively the Bioconductor ecosystem](https://bioconductor.org/books/release/OSCA/) # not recommended. SCE is not well developed as Seurat
-- [NBIS is a distributed national bioinformatics infrastructure, supporting life sciences in Sweden.](https://nbisweden.github.io/workshop-scRNAseq/exercises.html) # including scRNA-seq, R, shell, rna-seq. Recommended for beginners but may not as good as Harvard.
+- [NBIS / a distributed national bioinformatics infrastructure, supporting life sciences in Sweden.](https://nbisweden.github.io/workshop-scRNAseq/exercises.html) # including scRNA-seq, R, shell, rna-seq. Recommended for beginners but may not as good as Harvard.
 - [Single Cell Multi-Omics Data Analysis](https://bookdown.org/ytliu13207/SingleCellMultiOmicsDataAnalysis/) # I've never seen it, but maybe we could learn from it.
-- [gao-lab/Guideline-for-Computational-Biology-and-Bioinformatics](https://github.com/gao-lab/Guideline-for-Computational-Biology-and-Bioinformatics)
-
+- [gao-lab/Guideline-for-Computational-Biology-and-Bioinformatics](https://github.com/gao-lab/Guideline-for-Computational-Biology-and-Bioinformatics) # maybe outdated
 - youtube
-<https://www.youtube.com/@sanbomics>
+  [https://www.youtube.com/@sanbomics](https://www.youtube.com/@sanbomics)
