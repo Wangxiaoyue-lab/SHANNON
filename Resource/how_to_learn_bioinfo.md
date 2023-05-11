@@ -38,5 +38,7 @@
 - [NBIS / a distributed national bioinformatics infrastructure, supporting life sciences in Sweden.](https://nbisweden.github.io/workshop-scRNAseq/exercises.html) # including scRNA-seq, R, shell, rna-seq. Recommended for beginners but may not as good as Harvard.
 - [Single Cell Multi-Omics Data Analysis](https://bookdown.org/ytliu13207/SingleCellMultiOmicsDataAnalysis/) # I've never seen it, but maybe we could learn from it.
 - [gao-lab/Guideline-for-Computational-Biology-and-Bioinformatics](https://github.com/gao-lab/Guideline-for-Computational-Biology-and-Bioinformatics) # maybe outdated
+- https://statbiomed.github.io/HKU-single-cell-workshop/  #2021 HongKong university
+- 
 - youtube
   [https://www.youtube.com/@sanbomics](https://www.youtube.com/@sanbomics)
