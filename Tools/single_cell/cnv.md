@@ -12,6 +12,12 @@
 
 # Benchmark
 
+
+Inferring copy number variation from gene expression data: methods, comparisons, and applications to oncology
+
+https://www.biorxiv.org/content/10.1101/2021.10.18.463991v1
+
+
 # Details
 
 ## infercnv
