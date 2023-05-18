@@ -12,6 +12,26 @@
 
 # Benchmark
 
+Inferring copy number variation from gene expression data: methods, comparisons, and applications to oncology
+
+https://www.biorxiv.org/content/10.1101/2021.10.18.463991v1
+
+
+copykat的正常细胞不能太少。而且copykat假设肿瘤细胞的非整倍性比较强，如果是二倍体肿瘤细胞可能无法识别
+
+casper需要bam文件，输出的cnv是离散的，而infercnv和copycat输出连续的cnv值
+
+
+copykat归一化到-1到1之间，正常细胞是0
+
+infercnv归一化到0到2之间，正常细胞是1  
+
+
+infercnv和copykat最好都提供正常样本作为参考，否则性能下降。
+
+
+患者样本的cnv变异性比方法推断变异性要高很多。 
+
 # Details
 
 ## infercnv
