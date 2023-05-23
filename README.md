@@ -23,18 +23,32 @@ Institute and human
 
 #### (a) Technology
 
+- early phase
+- droplet
+- multimodal
+- combinatorial index
+- full length
+- optimized
+
+
 #### (b) Review
 
+
 #### (c) Finding
+
+- tumor
+- development
+- disease
+- in vitro model
 
 
 ### 1.1.3 Project
 
-(a) ENCODE
+#### (a) ENCODE
 
-(b) TCGA
+#### (b) TCGA
 
-(c) GTEx
+#### (c) GTEx
 
 
 
