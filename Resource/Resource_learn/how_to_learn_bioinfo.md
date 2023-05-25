@@ -42,3 +42,41 @@
 - 
 - youtube
   [https://www.youtube.com/@sanbomics](https://www.youtube.com/@sanbomics)
+
+# resources
+```shell
+pwd
+/public/home/luoliheng/share
+tree -L 3
+.
+└── reference_books
+    ├── linux
+    │   ├── Bash\ Reference\ Manual.pdf
+    │   └── Linux_command_line_and_shell_script_programming.pdf
+    ├── ML
+    │   ├── Josh_Starmer_-_The_StatQuest_illustrated_guide_to_machine_learning!!!_(2022).pdf
+    │   ├── prml
+    │   ├── py_ml
+    │   ├── Statistical_Learning_Methods_2ndEdition
+    │   └── Zhou_Zhihua_Machine_Learning.pdf
+    ├── python
+    │   ├── 3.Python_for_Probability,_Statistics,_and_Machine_Learning,_3rd_Edition_9783031046476.pdf
+    │   └── Visualize_book
+    ├── R
+    │   ├── advancedR\ 2.pdf
+    │   ├── base-r.pdf
+    │   ├── basicR.pdf
+    │   ├── (Chapman_&_Hall_CRC_the_R_series_(CRC_Press))_Hadley_Wickham_-_Advanced_R-Taylor_&_Francis,_CRC_Press_(2019).pdf
+    │   ├── datavisR.pdf
+    │   ├── Malte_Grosser__Henning_Bumann__Hadley_Wickham_-_Advanced_R_Solutions-CRC_Press_(2021).pdf
+    │   ├── Rbook.pdf
+    │   ├── R_course.pdf
+    │   ├── r-in-action-2_chinese.pdf
+    │   ├── r-in-action-3.pdf
+    │   └── R_language_programming_guide.pdf
+    └── scRNA-seq-course_sanger.pdf
+
+9 directories, 17 files
+
+```
+

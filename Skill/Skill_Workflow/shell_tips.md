@@ -1,4 +1,8 @@
-
+# change your group
+```
+# It takes a lot of time
+chgrp -R wanglab ~
+```
 
 
 
