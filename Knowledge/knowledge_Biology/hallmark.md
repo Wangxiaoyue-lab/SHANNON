@@ -1,4 +1,4 @@
-# 建议阅读
+# 特征
 
 ## 1.肿瘤特征
 
@@ -19,7 +19,5 @@ https://www.cell.com/cell/fulltext/S0092-8674(22)01377-0
 https://www.cell.com/cell/fulltext/S0092-8674(21)00364-0
 
 Hallmarks of health
-
-
 
 # 4.干细胞
