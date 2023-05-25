@@ -19,10 +19,36 @@
 
 # How to learn maching learning
 
+- 高靖静师姐建议：
+1. 入门
+   1. 吴恩达机器学习： [吴恩达机器学习系列课程_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV164411b7dx?spm_id_from=333.999.0.0)
+   2. 吴恩达深度学习： [吴恩达深度学习deeplearning.ai_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1FT4y1E74V?spm_id_from=333.999.0.0&vd_source=4c0518a6bef83f692def7c8a7b84e9ad)
+    吴恩达深度学习课程更新部分：
+    [(强推)2021吴恩达深度学习-卷积神经网络_哔哩哔哩_bilibili](<https://www.bilibili.com/video/BV1e54y1b7uk?spm_id_from=333.999.0.0&vd_source=4c0518a6bef83f692def7c8a7b84e9ad>)
+    [(强推)2021吴恩达深度学习-NLP序列模型_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1Co4y1279R?spm_id_from=333.999.0.0)
+    [吴恩达2022机器学习 machine learning specialization](<https://www.bilibili.com/video/BV19B4y1W76i/?spm_id_from=333.337.search-card.all.click&vd_source=fd14c8a48e98e913fe83864fa660e5ce>)
+   3. [李宏毅ML+DL： (强推)李宏毅2021/2022春机器学习课程_哔哩哔哩_bilibili](<https://www.bilibili.com/video/BV1Wv411h7kN?spm_id_from=333.999.0.0&vd_source=4c0518a6bef83f692def7c8a7b84e9ad>)
+备注：吴恩达课程相对宽泛、适合基础入门，李宏毅课程更加详细。建议顺序：1）-> 2) -> 3)。吴恩达课程对应练习题可在百度、必应、GitHub上自行搜索。
+
+2. 深度学习经典图书：《深度学习_[美]Ian Goodfellow》
+3. 深度学习常用框架: Tensorflow、keras、pytorch、MXNet、Caffe等，建议先选择一种框架学习、熟练使用。以下三个教程均是基于python实现，可以简单理解这些框架类似于python的第三方package。
+Pytorch：视频
+[PyTorch深度学习快速入门教程（绝对通俗易懂！）【小土堆】_哔哩哔哩_bilibili](<https://www.bilibili.com/video/BV1hE411t7RN?spm_id_from=333.1007.top_right_bar_window_custom_collection.content.click&vd_source=4c0518a6bef83f692def7c8a7b84e9ad>)
+[Tensorflow]：书《Tensorflow深度学习》
+Keras：书《python 深度学习》
+备注：建议先跟着教程中的代码进行学习，熟悉后，随便找感兴趣的文献模型进行复现。另，Tensorflow 2中已经引入了Keras，因此如果安装了Tensorflow 2，就不需要再装Keras，可以直接使用命令（ import tensorflow.keras ）。
+4. 人工智能拓展学习视频：
+[王树森老师：ShusenWang的个人空间_哔哩哔哩_bilibili](<https://space.bilibili.com/1369507485/video?tid=0&page=1&keyword=&order=pubdate>)
+[李沐老师：跟李沐学AI的个人空间_哔哩哔哩_bilibili](https://space.bilibili.com/1567748478/video)
+
+
+
+
+
+
+- other resources
 [lovingers/ML_Books: 宗旨：构建全球最大的ML相关的学习书籍平台（吹牛的） (github.com)](https://github.com/lovingers/ML_Books)
-
 [3Blue1Brown(数学原理可视化)](https://www.3blue1brown.com/#lessons)
-
 [Immersive Math(线代运算可视化)](http://immersivemath.com/ila/index.html)
 
 # How to learn omics
@@ -37,46 +63,15 @@
 - [A great book on exclusively the Bioconductor ecosystem](https://bioconductor.org/books/release/OSCA/) # not recommended. SCE is not well developed as Seurat
 - [NBIS / a distributed national bioinformatics infrastructure, supporting life sciences in Sweden.](https://nbisweden.github.io/workshop-scRNAseq/exercises.html) # including scRNA-seq, R, shell, rna-seq. Recommended for beginners but may not as good as Harvard.
 - [Single Cell Multi-Omics Data Analysis](https://bookdown.org/ytliu13207/SingleCellMultiOmicsDataAnalysis/) # I've never seen it, but maybe we could learn from it.
-- [gao-lab/Guideline-for-Computational-Biology-and-Bioinformatics](https://github.com/gao-lab/Guideline-for-Computational-Biology-and-Bioinformatics) # maybe outdated
+- [gao-lab/Guideline-for-Computational-Biology-and-Bioinformatics](https://github.com/gao-lab/Guideline-for-Computational-Biology-and-Bioinformatics) # 
 - https://statbiomed.github.io/HKU-single-cell-workshop/  #2021 HongKong university
 - 
 - youtube
   [https://www.youtube.com/@sanbomics](https://www.youtube.com/@sanbomics)
 
 # resources
-```shell
-pwd
-/public/home/luoliheng/share
-tree -L 3
-.
-└── reference_books
-    ├── linux
-    │   ├── Bash\ Reference\ Manual.pdf
-    │   └── Linux_command_line_and_shell_script_programming.pdf
-    ├── ML
-    │   ├── Josh_Starmer_-_The_StatQuest_illustrated_guide_to_machine_learning!!!_(2022).pdf
-    │   ├── prml
-    │   ├── py_ml
-    │   ├── Statistical_Learning_Methods_2ndEdition
-    │   └── Zhou_Zhihua_Machine_Learning.pdf
-    ├── python
-    │   ├── 3.Python_for_Probability,_Statistics,_and_Machine_Learning,_3rd_Edition_9783031046476.pdf
-    │   └── Visualize_book
-    ├── R
-    │   ├── advancedR\ 2.pdf
-    │   ├── base-r.pdf
-    │   ├── basicR.pdf
-    │   ├── (Chapman_&_Hall_CRC_the_R_series_(CRC_Press))_Hadley_Wickham_-_Advanced_R-Taylor_&_Francis,_CRC_Press_(2019).pdf
-    │   ├── datavisR.pdf
-    │   ├── Malte_Grosser__Henning_Bumann__Hadley_Wickham_-_Advanced_R_Solutions-CRC_Press_(2021).pdf
-    │   ├── Rbook.pdf
-    │   ├── R_course.pdf
-    │   ├── r-in-action-2_chinese.pdf
-    │   ├── r-in-action-3.pdf
-    │   └── R_language_programming_guide.pdf
-    └── scRNA-seq-course_sanger.pdf
-
-9 directories, 17 files
-
-```
-
+These books and resources are shared in luoliheng@10.168.203.60. 
+You can copy it directly or synchronize(同步) this file by sftp.
+*Some files may be out of date, feel free to add, delete and update.*
+Directory: `/public/home/luoliheng/share/reference_books`
+![1684996933465](image/how_to_learn_bioinfo/1684996933465.png)
