@@ -28,7 +28,7 @@
       [(强推|双字)2021版吴恩达深度学习课程Deeplearning.ai](https://www.bilibili.com/video/BV12E411a7Xn/?vd_source=fd14c8a48e98e913fe83864fa660e5ce)
    3. [李宏毅ML+DL： (强推)李宏毅2021/2022春机器学习课程_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1Wv411h7kN?spm_id_from=333.999.0.0&vd_source=4c0518a6bef83f692def7c8a7b84e9ad)
       备注：吴恩达课程相对宽泛、适合基础入门，李宏毅课程更加详细。建议顺序：1）-> 2) -> 3)。吴恩达课程对应练习题可在百度、必应、GitHub上自行搜索。
-      # Coursera官网的吴恩达课程一定是最新版的,且附带代码练习，比较推荐，不过需要收费
+      **Coursera官网的吴恩达课程一定是最新版的,且附带代码练习，强烈推荐，不过需要收费**
       [ML.Coursera](https://www.coursera.org/specializations/machine-learning-introduction)
       [DL.Coursera](https://www.coursera.org/specializations/deep-learning)
 2. 深度学习经典图书：《深度学习_[美]Ian Goodfellow》
