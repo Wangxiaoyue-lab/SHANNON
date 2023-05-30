@@ -68,6 +68,7 @@ infercnv和copykat最好都提供正常样本作为参考，否则性能下降�
 # Comments
 
 - 不是所有的肿瘤都存在CNV。儿童肿瘤和血液肿瘤中基本没有copy number event，所以是不适合用这些方法（copyKAT或inferCNV）来寻找肿瘤细胞的
+- 亚克隆最好是每个病人单独运行才比较好看到
 - cnv有三种
 
   * Copy gain
