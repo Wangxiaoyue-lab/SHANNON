@@ -86,5 +86,5 @@ export http_proxy=http://127.0.0.1:3129
 export https_proxy=http://127.0.0.1:3129
 ```
 
-最后在Host A：
+最后在Host A：windows的终端中，注意，命令完成后不要关闭终端
 `ssh -R 3129:localhost:3128 luoliheng@10.168.203.60`
