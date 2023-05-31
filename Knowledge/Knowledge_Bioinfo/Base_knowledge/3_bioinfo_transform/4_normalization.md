@@ -2,7 +2,7 @@
 
 # rpkm fpkm
 
-# TPM
+# TPM | 适用于PCA和clustering
 
 TPM不一定比rpkm好，TPM更类似于比例，fpkm更类似于含量。
 
@@ -11,9 +11,3 @@ TPM不一定比rpkm好，TPM更类似于比例，fpkm更类似于含量。
 如果此时选用TPM，相当于总体乘以了一个大于1的因子，即会一定程度高估低表达基因
 
 # CPM
-
-counts 
-
-1          1
-
-10      100
