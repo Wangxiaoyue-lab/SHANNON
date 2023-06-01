@@ -1,8 +1,10 @@
-# academic leader
+# academic PI
+
 ## Lior Pachter
 
 介绍：
 加州理工
+
 - https://www.bbe.caltech.edu/people/lior-s-pachter
 - https://github.com/pachterlab
 
@@ -13,3 +15,6 @@
 - [bcltools](https://github.com/pachterlab/bcltools)
 - [picasso](https://github.com/pachterlab/picasso)
 
+
+
+## Aviv Regev
