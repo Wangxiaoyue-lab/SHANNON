@@ -21,7 +21,7 @@ b. 接着，根据参考资料1，
 
 进入 `/etc/squid/squid.conf`文件注释 `http_access deny all `并添加 `http_access allow all`
 
-# 3. vpn
+# 3. vpn(理论上可选)
 
 如果要使用vpn
 
