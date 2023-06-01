@@ -42,8 +42,8 @@ b. 接着，根据参考资料1，
 c. Host B 上:将下面的语句加入bashrc并source。原教程中使用的是environment，没有root实现不了。
 
 ```
-export http_proxy=http://127.0.0.1:3129
-export https_proxy=http://127.0.0.1:3129
+export http_proxy=http://127.0.0.1:3128
+export https_proxy=http://127.0.0.1:3128
 ```
 
 # 5. 启动本地squid
@@ -55,12 +55,30 @@ d. 最后在Host A：windows
 
 - 在vscode中，在端口中加上3128即可
   或者，在ssh默认配置文件中，可以添加这一行以永久forward这个端口
-  `LocalForward 3129 localhost:3128`
+  `LocalForward 3128 localhost:3128`
   - 添加完后需要重启vscode
 - 如果没有vscode
-  `ssh -L 3129:localhost:3128 user@remote_host`
+  `ssh -L 3128:localhost:3128 user@remote_host`
   其中，-L表示本地转发，3128是本地端口，localhost:3129是远程主机和端口。这个命令将会把本地的3128端口转发到远程主机的3129端口。
 
 # 7. 本地终端运行
 
-- 最后，在终端中使用 `ssh -R 3129:localhost:3128 user@10.168.203.60`，即可连接到本地网络。
+- 最后，在终端中使用 `ssh -R 3128:localhost:3128 user@10.168.203.60`，即可连接到本地网络。
+
+# 8. 测试
+
+```shell
+wget www.google.com
+```
+
+显示
+
+> --2023-06-01 22:00:27--  http://www.google.com/
+> Connecting to 127.0.0.1:3128... connected.
+> Proxy request sent, awaiting response... 302 Found
+> ...
+> Saving to: ‘index.html’
+>
+> index.html                        [ <=>                                              ]  16.88K  --.-KB/s    in 0.07s
+>
+> 2023-06-01 22:00:30 (253 KB/s) - ‘index.html’ saved [17281]
