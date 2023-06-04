@@ -49,6 +49,7 @@ export https_proxy=http://127.0.0.1:3129
 # 5. 启动本地squid
 
 安装后有Squid Server Tray的快捷方式，双击启动
+我发现只需要打开一次squid即可，之后即使关闭，squid.exe仍然运行在后台，不影响连接
 
 # 6. 服务器添加端口转发即可运行
 
