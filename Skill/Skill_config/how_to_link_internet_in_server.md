@@ -12,18 +12,18 @@
 
 # 1. 下载
 
- 首先，在参考资料2中下载squid并使其运行
+首先，在参考资料2中下载squid并使其运行
 https://packages.diladele.com/squid/4.14/squid.msi
 
 # 2. 修改本地squid配置
 
- 接着，根据参考资料1，
+接着，根据参考资料1，
 
 进入 `/etc/squid/squid.conf`文件注释 `http_access deny all `并添加 `http_access allow all`
 
 # 3. 代理
 
-若不使用代理则跳过这一条也可运行，且在不使用代理的情况下，注释以下配置即可
+若不使用代理则跳过这一条也可运行，且在不使用代理的情况下，需要注释以下配置
 
 如果主机A本身使用一些代理' 10.140.78.130:8080 '(就像例子一样)连接到互联网，则需也添加代理到' /etc/squid/squid.conf '，如下所示:
 
