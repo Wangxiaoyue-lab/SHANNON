@@ -46,6 +46,8 @@
   [lovingers/ML_Books: 宗旨：构建全球最大的ML相关的学习书籍平台（吹牛的） (github.com)](https://github.com/lovingers/ML_Books)
   [3Blue1Brown(数学原理可视化)](https://www.3blue1brown.com/#lessons)
   [Immersive Math(线代运算可视化)](http://immersivemath.com/ila/index.html)
+
+  [microsoft/ML-For-Beginners: 12 weeks, 26 lessons, 52 quizzes, classic Machine Learning for all (github.com)](https://github.com/microsoft/ML-For-Beginners) # 微软5万star的教程，没看过
 - [南京大学周志华教授亲讲机器学习](https://www.bilibili.com/video/BV1R44y1o749/?spm_id_from=333.337.search-card.all.click) # 非常基础
 
 # How to learn omics
