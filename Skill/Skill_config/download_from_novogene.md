@@ -25,7 +25,7 @@
   # 或系统范围的配置文件(例如：/etc/environment)中删除
   ```
 
-4. 登陆并全部下载
+4. 下载
 
 ```bash
 # 登陆
@@ -33,6 +33,13 @@
 # 下载
 ./lnd cp -d oss://CP2023030700120 /public/home/luoliheng/perturb/raw_data_230609
 
+# 进入下载目录并验证
+cd /public/home/luoliheng/perturb/raw_data_230609/CP2023030700120/H101SC23031823/RSHR01204/X101SC23031823-Z01/X101SC23031823-Z01-J004
+md5sum -c md5sum.txt
 
+Rawdata/IPSC_DE/IPSC_DE-1_S1_L002_R1_001.fastq.gz: OK
+Rawdata/IPSC_DE/IPSC_DE-1_S1_L002_R2_001.fastq.gz: OK
 
 ```
+
+全部ok后即可进行后续分析，否则需要重新下载
