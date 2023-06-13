@@ -245,39 +245,11 @@ animal_sound(my_cat) # 输出: The cat meows
 
 # 装饰器
 
-## 装饰器函数
-
-装饰器函数可以接受另外一个函数作为输入。
-
-被装饰器装饰之后直接用原函数相当于又使用了一次装饰函数
-
-```python
-def my_decorator(func):
-    def wrapper(*args, **kwargs):
-        print('Before function call')
-        result = func(*args, **kwargs)
-        print('After function call')
-        return result
-    return wrapper
-
-@my_decorator
-def my_function(x, y):
-    print(f'x + y = {x + y}')
-
-my_function(1, 2)
-# 输出:
-# Before function call
-# x + y = 3
-# After function call
-```
-
-
 使用@my_decorator装饰器来装饰my_function()函数。这相当于执行了如下代码:
 
 ```python
 my_function = my_decorator(my_function)
 ```
-
 
 ## @staticmethod 静态方法  类和实例都不访问
 
