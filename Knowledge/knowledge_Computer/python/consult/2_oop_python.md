@@ -245,9 +245,44 @@ animal_sound(my_cat) # 输出: The cat meows
 
 # 装饰器
 
-## @staticmethod 静态方法 
+## 装饰器函数
 
-处理与类相关但是与实例不直接相关的
+装饰器函数可以接受另外一个函数作为输入。
+
+被装饰器装饰之后直接用原函数相当于又使用了一次装饰函数
+
+```python
+def my_decorator(func):
+    def wrapper(*args, **kwargs):
+        print('Before function call')
+        result = func(*args, **kwargs)
+        print('After function call')
+        return result
+    return wrapper
+
+@my_decorator
+def my_function(x, y):
+    print(f'x + y = {x + y}')
+
+my_function(1, 2)
+# 输出:
+# Before function call
+# x + y = 3
+# After function call
+```
+
+
+使用@my_decorator装饰器来装饰my_function()函数。这相当于执行了如下代码:
+
+```python
+my_function = my_decorator(my_function)
+```
+
+
+## @staticmethod 静态方法  类和实例都不访问
+
+处理与类相关但是与实例不直接相关的任务
+不访问任何类或者实例的属性
 
 ```python
 class ex():
@@ -262,7 +297,45 @@ class ex():
 ex.method1(x,y)
 ```
 
-## @classmethod 类方法
+## @classmethod 类方法  访问类不访问实例
 
+处理与类相关的任务
+可以访问类的属性，不能访问实例的属性
 
-## @property
+类方法的第一个参数是cls，表示类本身
+
+```python
+class myclass():
+    x = 1
+    @classmethod
+    def method1(cls)
+        print(f'x = {cls.x}')
+
+myclass.method1()
+```
+
+## @property  方法变成属性
+
+把一个 Method 变成属性调用
+
+这样可以限制访问 访问的属性只是运行结果，不是原属性本身
+
+```python
+class myclass():
+    def __init__(self)：
+        self.__name
+        self.__age
+    def method1(self):
+        return self.__name
+    @property
+    def method1(self):
+        return self.__name
+```
+
+被property装饰的方法不需要再加括号
+
+```python
+ex=myclass()
+ex.method1()
+ex.method2
+```
