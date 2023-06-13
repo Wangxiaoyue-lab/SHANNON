@@ -1,3 +1,12 @@
+# trick技巧
+
+如果function有多个输出，只想要某一个
+利用下划线选定
+
+```python
+_,a = function()
+```
+
 # base
 
 ## 调试
@@ -27,48 +36,55 @@ vars(obj)
 ```
 
 ## 迭代器
+
 可迭代对象 iterable 包括字符串、列表、元组、字典和集合
 迭代器 iterator
 
-
 检查是否可迭代,是的话变成迭代器
 python 使用for循环时候会自动对可迭代对象使用iter()函数
+
 ```python
 iter(list)
 ```
 
 提取迭代器的下一个元素
+
 ```python
 next(iter)
 ```
 
-
 等差数列
+
 ```python
 range(10)
 range(1,10)# 包含1不包含10
 range(1,10,2)
 ```
 
-
 ## 常用处理
+
 排序 sorted
+
 ```python
 b = sorted(a,reverse=True)
 ```
 
 压缩对象 zip
+
 ```python
 x = [3,2,1]
 y = [4,5,6]
 list(zip(x,y))
 ```
+
 匿名函数 lambda
+
 ```python
 lambda x: x**x
 ```
 
 过滤 filter
+
 ```python
 filter(function,iterable)
 
@@ -76,43 +92,164 @@ filter(lambda x: x > 5, [1,3,5,7,9])
 ```
 
 批处理
+
 ```python
 map(function,iterable)
 
 map(square, [1,4,5,6,7])
 ```
 
-# 生成式
+## 基本类型
+
+### list
+
+切片
+
+```python
+mylist[1:2]
+
+mylist[::-1]#可省略参数
+```
+
+修改
+
+```python
+mylist[0]="a"
+```
+
+插入指定位置
+
+```python
+mylist.insert(3,"a")
+```
+
+插入尾部
+
+```python
+mylist.append("a")
+```
+
+合并
+
+区分os.path.join()
+
+```python
+'_'.join(mylist)
+```
+
+删除
+
+```python
+#删除具体值
+mylist.remove("a")
+
+#删除坐标
+del mylist[2]
+```
+
+### dict
+
+双list生成
+
+```python
+mydict=dict(zip(x,y))
+```
+
+提取值 不存在就创建
+
+```python
+mydict.get("a")
+
+#不存在就给予0值，存在就提取本来的值
+mydict.get("a",0)
+```
+
+获得所有key
+
+```python
+mydict.keys()
+```
+
+获得所有value
+
+```python
+mydict.values()
+```
+
+获得所有键值对
+
+```python
+mydict.items()
+```
+
+新增
+
+```python
+score["a"]=1
+```
+
+合并
+
+```python
+dict3=dict1.dict2
+```
+
+### set
+
+### tuple
+
+创建
+
+```python
+t=("a",)
+
+t=("a","b","c","d")
+```
+
+获取
+
+```python
+t[0]
+```
+
+## 生成式
+
 列表生成式
+
 ```python
 my_list = [x**2 for x in range(11) if x % 3 == 1]
 ```
 
 字典生成式
+
 ```python
 my_dir = [x: x**2 for x in range(11) if x % 3 == 1]
 ```
 
 集合生成式
+
 ```python
 my_set = {x**2 for x in range(11) if x % 3 == 1}
 ```
 
 元组没有生成式
 
-
 ## 编译
+
 eval 转化简单表达式为代码
+
 ```python
 eval("a+b+c")
 ```
 
 exec 转化复杂语句为代码
+
 ```python
 exec(code)
 ```
 
 compile
+
 ```python
 compile(s,"<string>","exec")
 ```
@@ -304,6 +441,22 @@ os.path.join(A, 'b')
 os.listdir(path)
 ```
 
+递归穿透
+
+```python
+os.walk(path)
+
+for root, dirs, files in os.walk(dir_path):
+    print(f"{root}")
+    print(f"{dirs}")
+    print(f"{files}")
+```
+
+root是你所要遍历的目录的地址，
+dirs是一个列表，内容是该文件夹中所有的目录的名字(不包括子目录)，
+files同样是一个列表，内容是该文件夹中所有的文件(不包括子目录)。
+会依次每个目录列出地址、下属子目录和下属文件
+
 获得文件的统计信息
 
 ```python
@@ -332,6 +485,18 @@ os.mkdir(path)
 
 ```python
 os.makedirs(path)
+```
+
+创建超链接
+
+```python
+os.symlink('/old/path','/new/path')
+```
+
+读取超链接
+
+```python
+os.readlink('/new/path')
 ```
 
 ### 重命名
