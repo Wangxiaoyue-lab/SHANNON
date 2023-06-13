@@ -283,7 +283,6 @@ pandas.NaT
 
 **kwargs用来传递关键字参数只会包括没有被指定的参数
 
-
 ```python
 def my_function(x, y, *args, **kwargs):
     print(f'x = {x}')
@@ -298,7 +297,6 @@ my_function(1, 2, 3, 4, a=5, b=6)
 # args = (3, 4)
 # kwargs = {'a': 5, 'b': 6}
 ```
-
 
 装饰器函数可以接受另外一个函数作为输入。
 
@@ -323,7 +321,6 @@ my_function(1, 2)
 # x + y = 3
 # After function call
 ```
-
 
 查看帮助
 
@@ -402,6 +399,16 @@ with open('out.log', 'w') as f_handler:
 x是新建，w是从头编辑，a是追加
 
 二进制文件是b
+
+## pickle
+
+```python
+import pickle
+with open("data.pickle","w") as f:
+	pickle.dump(data,f)
+
+```
+
 
 ## 格式化输出
 
