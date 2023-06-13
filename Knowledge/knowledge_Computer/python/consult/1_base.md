@@ -271,6 +271,60 @@ pandas.NaT
 
 ## 库、函数
 
+函数参数传递
+
+*args和**kwargs是Python中的两种特殊语法，用来传递可变数量的参数给函数。
+*args用来传递非关键字参数。它会将传递给函数的所有非关键字参数打包成一个元组，然后传递给函数。
+
+在函数内部，可以使用args变量来访问这些参数。
+**kwargs用来传递关键字参数。它会将传递给函数的所有关键字参数打包成一个字典，然后传递给函数。
+
+在函数内部，可以使用kwargs变量来访问这些参数。
+
+**kwargs用来传递关键字参数只会包括没有被指定的参数
+
+
+```python
+def my_function(x, y, *args, **kwargs):
+    print(f'x = {x}')
+    print(f'y = {y}')
+    print(f'args = {args}')
+    print(f'kwargs = {kwargs}')
+
+my_function(1, 2, 3, 4, a=5, b=6)
+# 输出:
+# x = 1
+# y = 2
+# args = (3, 4)
+# kwargs = {'a': 5, 'b': 6}
+```
+
+
+装饰器函数可以接受另外一个函数作为输入。
+
+被装饰器装饰之后直接用原函数相当于又使用了一次装饰函数
+
+```python
+def my_decorator(func):
+    def wrapper(*args, **kwargs):
+        print('Before function call')
+        result = func(*args, **kwargs)
+        print('After function call')
+        return result
+    return wrapper
+
+@my_decorator
+def my_function(x, y):
+    print(f'x + y = {x + y}')
+
+my_function(1, 2)
+# 输出:
+# Before function call
+# x + y = 3
+# After function call
+```
+
+
 查看帮助
 
 ```python
