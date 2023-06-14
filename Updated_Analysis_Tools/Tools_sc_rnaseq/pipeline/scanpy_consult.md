@@ -64,7 +64,7 @@ cho_pri.obs['NK']
 cho_pri.var
 ```
 
-### uns|数据集参数标注
+### uns|数据集参数标注  任何非结构化元数据
 
 无结构的标注，有序字典。
 
@@ -74,6 +74,8 @@ cho_pri.uns['louvain']
 ```
 
 这个uns的部分不是针对行/列的，而是针对行和列标注的参数的（暂时这么理解），在上述中pbmc的obs中有louvain观测，那么在uns中就是运行louvain算法的参数。是以哈希形式存储的。
+
+它允许任何非结构化元数据。这可以是任何东西，例如包含一些对我们的数据分析有用的一般信息的列表或字典。尝试仅将此插槽用于无法有效存储在其他插槽中的数据。
 
 ### obsm|细胞的多维注释/降维
 
@@ -193,6 +195,21 @@ adata=ad.AnnData(X,obs=obs,var=var,dtype='int32')
 adata_subset.obs['foo'] = range(5)
 ```
 
+### 稀疏矩阵和array的转化
+
+numpy矩阵变成稀疏矩阵
+
+```python
+from scipy.sparse import csr_matrix
+sparse_A = csr_matrix(A)
+```
+
+稀疏矩阵变成numpy
+
+```python
+A = sparse_A.toarray()
+```
+
 # scanpy
 
 ## 命名
@@ -211,7 +228,7 @@ sc.logging.print_header()
 sc.settings.set_figure_params(dpi=80, facecolor='white')
 ```
 
-```
+```python
 import os 
 os.getcwd()  ##查看当前路径
 os.chdir('./Integrate/ingest') ##修改路径
@@ -440,6 +457,13 @@ Moran 's I是一个全局自相关统计量，用于图上的某种度量。在�
 
 ## 6. 提取
 
+### 提取某一layer变成dataframe
+
+```python
+sc_obj.to_df[layer="counts"]
+
+```
+
 ### 提取obs注释
 
 Return values for observations in adata.
@@ -484,17 +508,27 @@ pp.downsample_counts(adata[, ...])
 
 ## 7. 合并
 
-```
-adata_concat = adata_ref.concatenate(adata, batch_categories=['ref', 'new']) #合并数据集
+```python
+#合并两个数据集
+adata_concat = adata_ref.concatenate(adata, batch_categories=['ref', 'new']) 
+
+
+#合并多个数据集
+batch_categories = ['A', 'B', 'C'] 
+# 指定每个输入对象所属的批次
+adata_merged = adata_list[0].concatenate(*adata_list[1:], batch_categories=batch_categories)
+#创建一个新的AnnData对象adata_merged，
+#它包含了来自列表中所有输入对象的数据。
+#此外，它还会在观察值注释（即adata_merged.obs）中添加一个名为batch的列，
+#用于存储每个观察值所属的批次。
 ```
 
 ## 8. 质控
 
+### 保证基因名/列名不重复
+
 ```python
-#去重？？
 cho_pri.var_names_make_unique()
-
-
 ```
 
 ### 画出表达最多的基因
@@ -648,7 +682,7 @@ adata = adata[adata.obs['n_genes'] < 4000, :]
 adata = adata[adata.obs['percent_mito'] < 0.3, :]
 ```
 
-## 解复用与双细胞
+## 9 解复用与双细胞
 
 Sample demultiplexing, Doublet detection
 
@@ -686,7 +720,7 @@ pp.hashsolo(adata, cell_hashing_columns[, ...])
 Probabilistic demultiplexing of cell hashing data using HashSolo [Bernstein20].
 使用HashSolo对细胞 hash数据进行概率解复用
 
-## 插补
+## 10 插补
 
 ### DCA
 
@@ -709,7 +743,7 @@ pp.magic(adata[, name_list, knn, decay, ...])
 
 ```
 
-## 预处理
+## 11 预处理
 
 ### 标准化
 
@@ -787,7 +821,7 @@ sc.pp.regress_out(adata, ['n_counts', 'percent_mito'])
 sc.pp.scale(adata, max_value=10)
 ```
 
-## 降维
+## 12 降维
 
 ### PCA
 
@@ -948,7 +982,7 @@ tl.embedding_density(adata[, basis, ...])
 
 Calculate the density of cells in an embedding (per condition).
 
-## 聚类
+## 13 聚类
 
 ### louvain法
 
@@ -1003,7 +1037,7 @@ sc.pl.umap(adata, color=['louvain'])
 
 ![[附件/Pasted image 20221014235504.png]]
 
-## 差异分析
+## 14 差异分析
 
 ### 指定分组 ☆
 
@@ -1061,7 +1095,7 @@ pl.rank_genes_groups_tracksplot(adata[, ...])
 
 ```
 
-## 整合与批次效应
+## 15 整合与批次效应
 
 ### 简单批次效应
 
@@ -1080,7 +1114,7 @@ pp.combat(adata[, key, covariates, inplace])
 [单细胞转录组之Scanpy - 样本整合分析 - 简书 (jianshu.com)](https://www.jianshu.com/p/beef8a8be360)
 
 ```python
-import bbknn             
+import bbknn           
 sc.tl.pca(adata_concat)
 sc.external.pp.bbknn(adata_concat, batch_key='batch')  
 sc.pl.umap(adata_concat, color=['batch', 'louvain'],legend_fontsize='xx-small')
@@ -1122,7 +1156,7 @@ tl.ingest(adata, adata_ref[, obs, ...])
 
 ```
 
-## 轨迹分析
+## 16 轨迹分析
 
 ### dpt
 
@@ -1150,7 +1184,7 @@ pl.dpt_timeseries(adata[, color_map, show, ...])
 本质也是一种伪时序
 paga适合复杂轨迹，slingshot适合简单轨迹
 
-```
+```python
 sc.tl.paga(adata)
 ```
 
