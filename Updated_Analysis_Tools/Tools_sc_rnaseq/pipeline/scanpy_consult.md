@@ -8,6 +8,10 @@
 
 ## 标准构成
 
+scanpy和seurat的矩阵方向不一样
+
+scanpy是 行为细胞 列为特征
+
 ### X|表达矩阵
 
 ```python
@@ -1076,7 +1080,7 @@ pp.combat(adata[, key, covariates, inplace])
 [单细胞转录组之Scanpy - 样本整合分析 - 简书 (jianshu.com)](https://www.jianshu.com/p/beef8a8be360)
 
 ```python
-import bbknn               
+import bbknn             
 sc.tl.pca(adata_concat)
 sc.external.pp.bbknn(adata_concat, batch_key='batch')  
 sc.pl.umap(adata_concat, color=['batch', 'louvain'],legend_fontsize='xx-small')
