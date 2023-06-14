@@ -80,17 +80,18 @@ wget www.baidu.com  # 无代理
 
 # 8. 一些可能的问题以及 debug 办法
 
-- vscode 中出现`Warning: remote port forwarding failed for listen port 3129`
+- vscode 中出现 `Warning: remote port forwarding failed for listen port 3129`
 
   - 有时会遇到端口连接失败的问题，`netstat -an | grep tcp | grep 3129`可以查看端口运行的进程，但没有管理员权限无法得知确切进程。且不知道出于什么原因，即使该端口被占用或者是其它原因，网络仍然可以连接。
 
 - 其它连接失败的解决方法
+
   - 将 vpn 从 rules 切换到 global
   - 如果 vscode 拓展不能正常加载，在设置中搜索 proxy 并关闭它
 
 # 9. 使用拓展
 
-- 理论上来说，从此也可以使用 git 在远程管理代码
+- 理论上来说，从此也可以使用 git 在远程管理代码，但是鉴于不能实时连接服务器，本地开发可能还是会好一些
 - 在计算节点能否连接网络？可以的
-  当我在 comput17 节点运行 jupyter 时，发现无法联网，在本地使用端口转发即可
+  当我在 comput17 节点运行 jupyter 时，发现无法联网，在本地使用端口转发即可，更改节点 ip 即可
   `ssh -R 3129:localhost:3128 luoliheng@10.168.203.17`
