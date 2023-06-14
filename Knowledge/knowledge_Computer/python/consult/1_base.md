@@ -23,6 +23,12 @@ len(obj)
 type(obj)
 ```
 
+判断类型是否是某一类型
+
+```python
+isinstance (a,int)
+```
+
 对象结构
 
 ```python
@@ -140,7 +146,6 @@ result = ["A"] * 6 + ["B"] * 5 + ["C"] * 9
 ```python
 res = sorted(set(l1),key=l1.index)
 ```
-
 
 合并
 

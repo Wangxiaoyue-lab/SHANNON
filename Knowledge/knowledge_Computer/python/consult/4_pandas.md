@@ -414,7 +414,9 @@ df1 = df.pivot(index='date', columns='variable', values='value')
 ```
 
 ## 因子化
+
 factorize 得到因子与坐标
+
 ```python
 import pandas as pd
 
@@ -431,12 +433,13 @@ print('Uniques:', uniques)
 #Codes: [0 1 0 2 1]
 #Uniques: ['apple' 'banana' 'cherry']
 ```
+
 用于对类别数据进行编码。它接受一个序列作为输入，并返回两个数组：一个整数编码数组和一个唯一值数组。
 、、、
 
-
 Categorical 分类变量
 节省内存，提高性能
+
 ```python
 #创建分类变量列
 df["A"] = pd.Categorical(['a','c','a','f'])
@@ -445,7 +448,6 @@ df["A"] = pd.Categorical(['a','c','a','f'])
 df['A'] = df['A'].astype('category')
 
 ```
-
 
 # 4 查询数据
 
@@ -636,7 +638,7 @@ pd.to_numeric(s)
 pd.to_string(s)
 ```
 
-### 某列
+### 某列astype
 
 ☆dtype 属性获取数据的类型
 
