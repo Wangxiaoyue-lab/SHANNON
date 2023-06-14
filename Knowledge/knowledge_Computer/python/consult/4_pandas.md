@@ -135,7 +135,7 @@ pd.read_pickle(target_fname, compression='xz')
 
 ## DataFrame数据框
 
- 列名都要单独指定 
+ 列名都要单独指定
 
 ### 字典变数据框
 
@@ -411,6 +411,39 @@ data = {'date': ['2018-08-01', '2018-08-02', '2018-08-03', '2018-08-01', '2018-0
         'value': [3.0 ,4.0 ,6.0 ,2.0 ,8.0 ,4.0 ,10.0 ,1.0 ]}
 df = pd.DataFrame(data=data, columns=['date', 'variable', 'value'])
 df1 = df.pivot(index='date', columns='variable', values='value')
+```
+
+## 因子化
+factorize 得到因子与坐标
+```python
+import pandas as pd
+
+# 创建一个包含类别数据的序列
+data = pd.Series(['apple', 'banana', 'apple', 'cherry', 'banana'])
+
+# 使用 factorize 函数对数据进行编码
+codes, uniques = pd.factorize(data)
+
+# 输出结果
+print('Codes:', codes)
+print('Uniques:', uniques)
+
+#Codes: [0 1 0 2 1]
+#Uniques: ['apple' 'banana' 'cherry']
+```
+用于对类别数据进行编码。它接受一个序列作为输入，并返回两个数组：一个整数编码数组和一个唯一值数组。
+、、、
+
+
+Categorical 分类变量
+节省内存，提高性能
+```python
+#创建分类变量列
+df["A"] = pd.Categorical(['a','c','a','f'])
+
+#修改为分类变量
+df['A'] = df['A'].astype('category')
+
 ```
 
 
@@ -764,7 +797,6 @@ dtype: float64
 s.index.array
 ```
 
-
 ### df['A'] | 取指定列
 
 ```
@@ -778,6 +810,7 @@ df['A']
 
 ```python
 
+
 [单独只写一个应该就是按行切]
 #按index切  loc 
 
@@ -786,6 +819,7 @@ df.loc['a','A']
 
 #取第'a'行到第'c'行，'A'列及'C'列
 df.loc['a':'c',['A','C']]
+#如何只取列，行也需要：作为占位符
 
 ```
 

@@ -129,6 +129,19 @@ mylist.insert(3,"a")
 mylist.append("a")
 ```
 
+乘法/重复
+
+```python
+result = ["A"] * 6 + ["B"] * 5 + ["C"] * 9
+```
+
+去重 借助集合set
+
+```python
+res = sorted(set(l1),key=l1.index)
+```
+
+
 合并
 
 区分os.path.join()
@@ -408,7 +421,6 @@ with open("data.pickle","w") as f:
 	pickle.dump(data,f)
 
 ```
-
 
 ## 格式化输出
 

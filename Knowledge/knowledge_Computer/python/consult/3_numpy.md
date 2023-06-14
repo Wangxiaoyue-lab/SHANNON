@@ -8,7 +8,6 @@ Numpy最基本最常用的数据类型是**ndarray（n维数组）**，其中的
 
 因此对于list对象的操作都可以运用到ndarray对象上。
 
-
 ```python
 import numpy as np
 ```
@@ -149,14 +148,12 @@ np.random.randint(0,10,10)
 
 # 数据读取
 
-
 ```python
 #将文件读入数组中
 
 import numpy as npdata = np.loadtxt("data.txt")  
  #将文件中数据加载到data数组里
 ```
-
 
 # 数据查看
 
@@ -175,7 +172,6 @@ arr = np.ones((5,4))
 arr[:3,:4]
 
 ```
-
 
 ## np.ndim 几维矩阵
 
@@ -300,7 +296,7 @@ np.random.permutation(a)
 从一维数组a中以概率p抽取元素， 形成size形状新数组，replace表示是否可以重用元素，默认为False。
 
 ```python
-choice(a[, size, replace, p]) 
+np.random.choice(a, size, replace, p) 
 ```
 
 # 数值计算

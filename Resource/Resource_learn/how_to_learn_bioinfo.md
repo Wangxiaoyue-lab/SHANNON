@@ -68,6 +68,14 @@
 - youtube
   [https://www.youtube.com/@sanbomics](https://www.youtube.com/@sanbomics)
 
+# How to learn spatial transcriptomic
+
+[https://lmweber.org/OSTA-book/](https://lmweber.org/OSTA-book/)  bioconductor研究空间转录组
+
+
+
+
+
 # resources
 
 These books and resources are shared in luoliheng@10.168.203.60.
