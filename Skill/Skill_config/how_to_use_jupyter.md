@@ -44,10 +44,11 @@
 
    它的功能是自动获得计算节点 ip 并转发端口。
 
-   copy 以后，既可以在命令行中
+   copy 以后，既可以在 bashrc 中添加
    `alias port_forward="bash /public/home/luoliheng/share/scripts/port_forward.sh"`
-   也可以删除其中的#号，它在 bash 时就会自动 alias。
-   然后重启命令行就可以使用`port_forward [port]`命令。如果不填 port 默认 8000。也可以直接在文件里修改默认值。
+   也可以删除脚本的#号，bash 脚本一次，它在 bash 时就会自动 alias。
+
+   最后重启命令行就可以使用`port_forward [port]`命令。如果不填 port 默认 8000。也可以直接在文件的第一行里修改默认值。
 
 - 附：协和高算计算节点对应的 IP:
   ```
