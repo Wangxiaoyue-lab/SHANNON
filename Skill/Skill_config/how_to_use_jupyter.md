@@ -1,79 +1,68 @@
 # jupyter
 
+参考资料：
 [远程连接集群（Slurm）上的 jupyter - 知乎](https://zhuanlan.zhihu.com/p/451185184)
 
 [reticulate：在 R 中使用 Python - 知乎](https://zhuanlan.zhihu.com/p/164507492)
 
 # srun 使用 jupyter
 
-背景：学校集群是 Slurm 调度系统，用户需要从自己的私人电脑（windows 本地）先连接到跳板机（中间登录节点），再申请计算节点，在计算节点上进行操作。
+1. 背景：学校集群是 Slurm 调度系统，用户需要从自己的私人电脑（windows 本地）先连接到跳板机（中间登录节点），再申请计算节点，在计算节点上进行操作。
 
 首先还是下载并且配置计算节点上的 jupyter，这里与其他配置方法相同，不再赘述。
 
-配置好后在节点(compute60)上启动 jupyter
-`srun --pty --mem=100G -c 10 jupyter lab --no-browser --port=8000 --ip=localhost`
+2. 配置好后在节点(compute60)上启动 jupyter
+   `srun --pty --mem=100G -c 10 jupyter lab --no-browser --port=8000 --ip=localhost`
 
-启动后如下：
+3. 建立隧道
 
-```
-[I 2021-12-29 13:09:50.542 ServerApp] jupyterlab_slurm | extension was successfully loaded.
-[I 2021-12-29 13:09:50.549 ServerApp] nbclassic | extension was successfully loaded.
-[I 2021-12-29 13:09:50.549 ServerApp] Serving notebooks from local directory: /data/private/user48/workspace/zjs/2021.10/jupyter_home
-[I 2021-12-29 13:09:50.549 ServerApp] Jupyter Server 1.4.1 is running at:
-[I 2021-12-29 13:09:50.550 ServerApp] https://127.0.0.1:8014/lab
-[I 2021-12-29 13:09:50.550 ServerApp]  or https://127.0.0.1:8014/lab
-[I 2021-12-29 13:09:50.550 ServerApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
-```
+- 在没有 vscode 的情况下，本机 shell 建立隧道。
 
-以上启动完毕。
+  ```
+  ssh -t -t  user48@2.1.1.5 -L 8014:localhost:8014 ssh 1.1.1.4 -L 8014:127.0.0.1:8014
+  # 这里user48是中间登录节点的用户名，2.1.1.5是中间登录节点的IP，1.1.1.4是计算节点的IP，8014是port号可以换成你自己喜欢的号码。
+  # 因此我的是
+  ssh -t -t  luoliheng@10.168.203.60 -L 8000:localhost:8000 ssh 10.168.203.12 -L 8000:127.0.0.1:8000
+  ```
 
-在没有 vscode 的情况下，本机 shell 建立隧道。
+  这段代码使用 ssh 命令建立了两个端口转发。
+  第一条命令使用-t -t 选项强制分配伪终端，然后使用-L 选项将本地计算机的端口 8000 转发到远程计算机 10.168.203.60 的端口 8000。
+  第二条命令在远程计算机 10.168.203.60 上运行，它将远程计算机的端口 8000 转发到另一个远程计算机 10.168.203.12 的端口 8000。因为此时我是在计算节点运行的。
 
-```
-ssh -t -t  user48@2.1.1.5 -L 8014:localhost:8014 ssh 1.1.1.4 -L 8014:127.0.0.1:8014
-# 这里user48是中间登录节点的用户名，2.1.1.5是中间登录节点的IP，1.1.1.4是计算节点的IP，8014是port号可以换成你自己喜欢的号码。
-# 因此我的是
-ssh -t -t  luoliheng@10.168.203.60 -L 8000:localhost:8000 ssh 10.168.203.12 -L 8000:127.0.0.1:8000
-```
+- 在有 vscode 的情况下呢？
+  第一条命令 vscode 会自动转发
+  第二条命令，则直接在 60 节点里运行 `ssh 10.168.203.12 -L 8000:127.0.0.1:8000`即可
 
-这段代码使用 ssh 命令建立了两个端口转发。第一条命令使用-t -t 选项强制分配伪终端，然后使用-L 选项将本地计算机的端口 8000 转发到远程计算机 10.168.203.60 的端口 8000。第二条命令在远程计算机 10.168.203.60 上运行，它将远程计算机的端口 8000 转发到另一个远程计算机 10.168.203.12 的端口 8000。因为此时我是在计算节点运行的。
+4. 建立隧道完成后，在本地浏览器输入如下代码，即可成功访问。
 
-在有 vscode 的情况下呢？
-第一条命令 vscode 会自动转发
-第二条命令，则直接在 60 节点里运行 `ssh 10.168.203.12 -L 8000:127.0.0.1:8000`即可
+   ```
+   https://127.0.0.1:8000
+   ```
 
-协和高算计算节点对应的 IP:
+5. 简便做法
+   每次要 squeue 获知计算节点，然后转发端口太麻烦，因此我已经写好了脚本，路径在`/public/home/luoliheng/share/scripts/port_forward.sh`
 
-```
-## Management Ethernet Network ##
-10.168.203.193        comput1        node1
-10.168.203.2        comput2        node2
-10.168.203.3        comput3        node3
-10.168.203.4        comput4        node4
-10.168.203.5        comput5        node5
-10.168.203.[6-64]   comput[6-64]   node[6-64]
-10.168.203.181      gpu1           node181
-10.168.203.184      fat1           node184
-10.168.203.188      admin1         node188
-10.168.203.190      login1         node190
+   它的功能是自动获得计算节点 ip 并转发端口。
 
-```
+   copy 以后，既可以在命令行中
+   `alias port_forward="bash /public/home/luoliheng/share/scripts/port_forward.sh"`
+   也可以删除其中的#号，它在 bash 时就会自动 alias。
+   然后重启命令行就可以使用`port_forward [port]`命令。如果不填 port 默认 8000。也可以直接在文件里修改默认值。
 
-建立隧道完成后，在本地浏览器输入如下代码，即可成功访问。
-
-```
-https://127.0.0.1:8000
-```
-
-每次要 squeue 然后转发端口太麻烦，因此我已经写好了脚本，路径在`/public/home/luoliheng/share/scripts/port_forward.sh`
-
-它的功能是自动获得计算节点 ip 并转发端口。
-
-copy 以后，既可以在命令行中`alias port_forward="bash /public/home/luoliheng/share/scripts/port_forward.sh"`
-
-也可以删除其中的#号，它在 bash 时就会自动 alias，但是在一次 bash 后应当注释掉。
-
-然后重启命令行就可以使用`port_forward [port]`命令。如果不填 port 默认 8000。也可以直接在文件里修改默认值。
+- 附：协和高算计算节点对应的 IP:
+  ```
+  ## Management Ethernet Network ##
+  10.168.203.193        comput1        node1
+  10.168.203.2        comput2        node2
+  10.168.203.3        comput3        node3
+  10.168.203.4        comput4        node4
+  10.168.203.5        comput5        node5
+  10.168.203.[6-64]   comput[6-64]   node[6-64]
+  10.168.203.181      gpu1           node181
+  10.168.203.184      fat1           node184
+  10.168.203.188      admin1         node188
+  10.168.203.190      login1         node190
+  ```
 
 # notebook 文件转换
 
