@@ -289,6 +289,15 @@ pandas.NaT
 
 ## 库、函数
 
+限定参数类型
+
+* int,long,float: 整型,长整形,浮点型
+* bool,str: 布尔型，字符串类型
+* List, Tuple, Dict, Set:列表，元组，字典, 集合
+* Iterable,Iterator:可迭代类型，迭代器类型
+* Generator：生成器类型
+
+
 函数参数传递
 
 *args和**kwargs是Python中的两种特殊语法，用来传递可变数量的参数给函数。

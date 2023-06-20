@@ -27,13 +27,34 @@ ggplot2 = importr("ggplot2")
 
 # 数据转换
 
+## pandas转data.frame
+
 ```python
-from rpy2.robjects import globalenv
 rdf = pandas2ri.py2rpy(df)
-globalenv['rdf'] = rdf
+
 ```
 
-# 运行 R 脚本
+# 传递变量R
+方式1
+```python
+r.assign('rdata',pydata)
+```
+
+方式2
+```python
+import rpy2.robjects as ro
+
+ro.globalenv['rdf'] = rdf
+```
+anndata可以用方式2传递
+
+# 运行R脚本
+```python
+# 运行R当行命令
+r("seurat_obj <- CreateSeuratObject(mat)")
+# R结果传递给python变量
+var = r("seurat_obj@assays$SCT@var.features")
+```
 
 ```python
 rscript = """

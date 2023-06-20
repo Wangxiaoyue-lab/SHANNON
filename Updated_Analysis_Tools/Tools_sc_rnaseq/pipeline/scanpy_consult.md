@@ -12,7 +12,7 @@ scanpy和seurat的矩阵方向不一样
 
 scanpy是 行为细胞 列为特征
 
-### X|表达矩阵
+### X|表达矩阵  行细胞 列特征
 
 ```python
 adata[:3, 'A'].X
@@ -414,17 +414,45 @@ sns.heatmap(cmtx)
 
 Given an original and new set of labels, create a labelled confusion matrix.
 
-### kNN图
+### 细胞的距离度量/构建knn图
 
 Represent data as a neighborhood structure, usually a knn graph.
 
-```
-Neighbors(adata[, n_dcs, neighbors_key])
+```python
+sc.pp.eighbors(adata[, n_dcs, neighbors_key])
 ```
 
 Data represented as graph of nearest neighbors.
 
-Settings
+- distances表示细胞间距离 取决于metric参数
+
+'cityblock', 'cosine', 'euclidean', 'l1', 'l2', 'manhattan'
+
+'braycurtis', 'canberra', 'chebyshev', 'correlation', 'dice', 'hamming', 'jaccard', 'kulsinski', 'mahalanobis', 'minkowski', 'rogerstanimoto', 'russellrao', 'seuclidean', 'sokalmichener', 'sokalsneath', 'sqeuclidean', 'yule'
+
+默认是欧几里得
+
+- connectivitives表示细胞间连通性  取决于method参数
+
+'umap', 'gauss', 'rapids'
+
+默认是umap
+
+- knn参数
+
+```
+knn=True
+```
+
+可以关闭knn
+
+- key_added= 'my'
+
+给输出矩阵添加前缀
+
+```
+key_added
+```
 
 ### 空间自相关量度Geary s C
 
@@ -599,7 +627,6 @@ sc.pp.calculate_qc_metrics(pbmc, qc_vars=["mito"], inplace=True)
 
 ```
 
-![[附件/Pasted image 20221015012212.png]]
 
 ```
 sns.jointplot(
@@ -611,13 +638,12 @@ sns.jointplot(
 
 ```
 
-![[附件/Pasted image 20221015012220.png]]
 
 ```
 sns.histplot(pbmc.obs["pct_counts_mito"])
 ```
 
-![[附件/Pasted image 20221015012618.png]]
+ 
 pct好像是百分比?
 
 #### 细胞周期
@@ -869,13 +895,17 @@ Plot PCA results.
 sc.pl.pca(adata, color='CST3') #绘图
 ```
 
-![[附件/Pasted image 20221014233208.png]]
-
 ### TSNE
 
 ### UMAP
 
 #### 进行umap
+
+需要先sc.pp.neighbors获得knn图
+
+```python
+sc.pp.neighbors
+```
 
 ```python
 sc.tl.umap(adata)
@@ -891,16 +921,29 @@ sc.pl.umap(adata, color=['CST3', 'NKG7', 'PPBP'])
 sc.pl.umap(adata, color=['CST3', 'NKG7', 'PPBP'], use_raw=False)
 ```
 
+- layer指定哪一层
+- 离散变量更换颜色
+
+```python
+platte=['#11111','#11111','#11111','#11111']
+```
+
+- 连续变量更换颜色
+
+```python
+color_map="viridis","plasma","inferno","magma","cividis"
+```
+
 ### phate
 
-```
-tl.phate(adata[, n_components, k, a, ...])
+```python
+sce.tl.phate(adata[, n_components, k, a, ...])
 
 PHATE [Moon17].
 ```
 
 ```
-pl.phate(adata, *[, color, gene_symbols, ...])
+sce.pl.phate(adata, *[, color, gene_symbols, ...])
 
 #Scatter plot in PHATE basis.
 
@@ -1002,13 +1045,21 @@ pc的数量依赖于上面所做的碎石图，一般是选在拐点处的的主
 
 ### leiden法 更推荐
 
-```
+```python
 sc.tl.leiden(adata)
 ```
 
 Louvain 算法有一个主要的缺陷：可能会产生任意的连接性不好的社区(甚至不连通)。为了解决这个问题，作者引入了Leiden算法。证明了该算法产生的社区保证是连通的。此外证明了当Leiden算法迭代应用时，它收敛于一个划分，其中所有社区的所有子集都是局部最优分配的。并且算法速度比Louvain算法更快。
 
 和Seurat等人一样，scanpy推荐Traag *等人(2018)提出的Leiden graph-clustering方法(基于优化模块化的社区检测)。注意，Leiden集群直接对cell的邻域图进行聚类，我们在sc.pp.neighbors已经计算过了。
+
+scanpy 中的默认分辨率参数是 1.0。然而，在许多情况下，分析人员可能希望尝试不同的分辨率参数来控制聚类的粗糙度。因此，我们建议将聚类结果保存在指示所选分辨率的指定键下。
+
+```python
+sc.tl.leiden(adata, key_added="leiden_res0_25", resolution=0.25)
+sc.tl.leiden(adata, key_added="leiden_res0_5", resolution=0.5)
+sc.tl.leiden(adata, key_added="leiden_res1", resolution=1.0)
+```
 
 ### dendrogram层次聚类
 
@@ -1114,7 +1165,7 @@ pp.combat(adata[, key, covariates, inplace])
 [单细胞转录组之Scanpy - 样本整合分析 - 简书 (jianshu.com)](https://www.jianshu.com/p/beef8a8be360)
 
 ```python
-import bbknn           
+import bbknn     
 sc.tl.pca(adata_concat)
 sc.external.pp.bbknn(adata_concat, batch_key='batch')  
 sc.pl.umap(adata_concat, color=['batch', 'louvain'],legend_fontsize='xx-small')
