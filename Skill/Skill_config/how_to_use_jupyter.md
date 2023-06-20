@@ -11,7 +11,7 @@
 
 首先还是下载并且配置计算节点上的 jupyter，这里与其他配置方法相同，不再赘述。
 
-2. 配置好后在节点(compute60)上启动 jupyter
+2. 配置好后在节点(compute60)上启动 jupyter,此时使用 squeue 就可以查看当前任务分配的节点，查看其 ip 后就可以建立隧道。
    `srun --pty --mem=100G -c 10 jupyter lab --no-browser --port=8000 --ip=localhost`
 
 3. 建立隧道
@@ -46,9 +46,11 @@
 
    copy 以后，既可以在 bashrc 中添加
    `alias port_forward="bash /public/home/luoliheng/share/scripts/port_forward.sh"`
-   也可以删除脚本的#号，bash 脚本一次，它在 bash 时就会自动 alias。
+   也可以删除脚本里的#号，bash 脚本一次以后，它在 bash 时就会自动 alias。
 
-   最后重启命令行就可以使用`port_forward [port]`命令。如果不填 port 默认 8000。也可以直接在文件的第一行里修改默认值。
+   最后重启命令行就可以随时随地使用`port_forward [port]`命令来进行端口转发了。如果不填 port 默认 8000。也可以直接在文件的第一行里修改默认值。
+
+- 有没有可能使 jupyter 运行之后自动转发呢？有可能，只是我目前不知道怎么做。
 
 - 附：协和高算计算节点对应的 IP:
   ```
