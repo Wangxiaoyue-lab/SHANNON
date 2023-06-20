@@ -13,7 +13,6 @@
 
 2. 配置好后在节点(compute60)上启动 jupyter,此时使用 squeue 就可以查看当前任务分配的节点，查看其 ip 后就可以建立隧道。
    `srun --pty --mem=100G -c 10 jupyter lab --no-browser --port=8000 --ip=localhost`
-
 3. 建立隧道
 
 - 在没有 vscode 的情况下，本机 shell 建立隧道。
@@ -40,7 +39,7 @@
    ```
 
 5. 简便做法
-   每次要 squeue 获知计算节点，然后转发端口太麻烦，因此我已经写好了脚本，路径在`/public/home/luoliheng/share/scripts/port_forward.sh`
+   每次要 squeue 获知计算节点，然后转发端口太麻烦，因此我已经写好了脚本，路径在 `/public/home/luoliheng/share/scripts/port_forward.sh`
 
    它的功能是自动获得计算节点 ip 并转发端口。
 
@@ -48,11 +47,11 @@
    `alias port_forward="bash /public/home/luoliheng/share/scripts/port_forward.sh"`
    也可以删除脚本里的#号，bash 脚本一次以后，它在 bash 时就会自动 alias。
 
-   最后重启命令行就可以随时随地使用`port_forward [port]`命令来进行端口转发了。如果不填 port 默认 8000。也可以直接在文件的第一行里修改默认值。
+   最后重启命令行就可以随时随地使用 `port_forward [port]`命令来进行端口转发了。如果不填 port 默认 8000。也可以直接在文件的第一行里修改默认值。
 
 - 有没有可能使 jupyter 运行之后自动转发呢？有可能，只是我目前不知道怎么做。
-
 - 附：协和高算计算节点对应的 IP:
+
   ```
   ## Management Ethernet Network ##
   10.168.203.193        comput1        node1
@@ -75,11 +74,9 @@
 jupyter nbconvert --to script notebook.ipynb
 ```
 
-复制
-
 这将在同一目录下生成一个名为 `notebook.py` 的 Python 脚本文件。
 
-对于 R 脚本，您可以使用上面提到的 `rmarkdown` 包中的 `convert_ipynb` 函数和 `knitr::purl()` 函数。您可以在 R 命令行中运行这些函数，也可以编写一个 R 脚本来执行这些操作。
+对于 R 脚本，您可以使用 `rmarkdown` 包中的 `convert_ipynb` 函数和 `knitr::purl()` 函数。您可以在 R 命令行中运行这些函数，也可以编写一个 R 脚本来执行这些操作。
 
 您可以使用以下 R 脚本将 Jupyter Notebook 转换为 R 脚本。该脚本接受一个命令行参数，即要转换的 Jupyter Notebook 文件的路径。它将在同一目录下生成一个与 Jupyter Notebook 文件同名的 R 脚本文件。
 
@@ -112,14 +109,10 @@ file.remove(rmd_file)
 cat(paste("已将", notebook_file, "转换为", r_script_file, "\n"))
 ```
 
-复制
-
 您可以将上述代码保存为一个文件，例如 `convert_notebook_to_r_script.R`，然后在命令行中运行以下命令来使用它：
 
 ```
 Rscript convert_notebook_to_r_script.R notebook.ipynb
 ```
-
-复制
 
 其中 `notebook.ipynb` 是要转换的 Jupyter Notebook 文件的路径。
