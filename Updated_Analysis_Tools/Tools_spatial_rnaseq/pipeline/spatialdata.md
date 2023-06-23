@@ -1,7 +1,9 @@
 > **_参考资料：_**
 >
 > > [论文地址](https://www.biorxiv.org/content/10.1101/2023.05.05.539647v1.full)
+>
 > > [代码复现](https://github.com/scverse/spatialdata-notebooks/tree/main/notebooks/paper_reproducibility)
+>
 > > [SpatialData 官网](https://spatialdata.scverse.org/en/latest/)
 
 ---
@@ -10,8 +12,6 @@
 
 由于**数据量大、数据类型异构以及缺乏统一的空间感知数据结构**，处理单模态和多模态空间组学数据集仍然是一个挑战。
 SpatialData 是一个框架，它建立了统一的、可扩展的多平台文件格式、大于内存的数据的延迟表示、转换以及与公共坐标系的对齐。SpatialData 促进了空间注释和跨模态聚合和分析，其实用性通过多个梗概来说明，包括对多模态 Xenium 和 Visium 乳腺癌研究的综合分析。
-
-虽然在分析单个空间组学数据集方面取得了进展，但整合多模态空间组学数据仍然是一个实际挑战。
 
 # 组织架构的整体视图--空间多组学数据处理中的挑战
 
