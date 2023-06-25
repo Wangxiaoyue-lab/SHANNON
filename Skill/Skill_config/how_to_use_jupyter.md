@@ -38,6 +38,11 @@
    https://127.0.0.1:8000
    ```
 
+   **_!常见 bug_**:
+   转接以后没有反应
+
+- `lsof -i :8000`可以查看当前自己的端口占用，但是并非能看到所有用户的，没反应的话建议换个端口重试
+
 # notebook 文件转换
 
 使用命令行工具 `jupyter nbconvert` 将 Jupyter Notebook 转换为 Python 脚本。例如，要将名为 `notebook.ipynb` 的 Jupyter Notebook 转换为 Python 脚本，可以在命令行中运行以下命令：
