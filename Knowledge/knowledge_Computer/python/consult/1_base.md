@@ -297,7 +297,6 @@ pandas.NaT
 * Iterable,Iterator:可迭代类型，迭代器类型
 * Generator：生成器类型
 
-
 函数参数传递
 
 *args和**kwargs是Python中的两种特殊语法，用来传递可变数量的参数给函数。
@@ -759,6 +758,16 @@ print("asdf4".isdigit())
 
 ## 判断
 
+
+一个由字符组成的list包含不包含特殊字符
+
+```python
+list.str.contains('a')
+
+```
+
+
+
 是否是纯字母
 
 ```python
@@ -778,6 +787,8 @@ str.islower()
 ```
 
 ## 查询
+
+
 
 字符第一次出现的位置
 

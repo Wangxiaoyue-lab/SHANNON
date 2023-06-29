@@ -419,7 +419,7 @@ Given an original and new set of labels, create a labelled confusion matrix.
 Represent data as a neighborhood structure, usually a knn graph.
 
 ```python
-sc.pp.eighbors(adata[, n_dcs, neighbors_key])
+sc.pp.neighbors(adata[, n_dcs, neighbors_key])
 ```
 
 Data represented as graph of nearest neighbors.
@@ -516,7 +516,7 @@ scanpy.tl.rank_genes_groups() results in the form of a DataFrame.
 get.rank_genes_groups_df(adata, group, *[, ...])
 ```
 
-### 取细胞子集
+### 取细胞子集 抽样
 
 Subsample to a fraction of the number of observations.
 
