@@ -7,10 +7,10 @@
 
 # srun 使用 jupyter
 
+**_SHANNON\Skill\Skill_config\how_to_forward_port.md 中有简便做法。_**
+
 1. 背景：学校集群是 Slurm 调度系统，用户需要从自己的私人电脑（windows 本地）先连接到跳板机（中间登录节点），再申请计算节点，在计算节点上进行操作。
-
-首先还是下载并且配置计算节点上的 jupyter，这里与其他配置方法相同，不再赘述。
-
+   首先还是下载并且配置计算节点上的 jupyter，这里与其他配置方法相同，不再赘述。
 2. 配置好后在节点(compute60)上启动 jupyter,此时使用 squeue 就可以查看当前任务分配的节点，查看其 ip 后就可以建立隧道。
    `srun --pty --mem=100G -c 10 jupyter lab --no-browser --port=8000 --ip=localhost`
 3. 建立隧道
@@ -38,33 +38,10 @@
    https://127.0.0.1:8000
    ```
 
-5. 简便做法
-   每次要 squeue 获知计算节点，然后转发端口太麻烦，因此我已经写好了脚本，路径在 `/public/home/luoliheng/share/scripts/port_forward.sh`
+   **_!常见 bug_**:
+   转接以后没有反应
 
-   它的功能是自动获得计算节点 ip 并转发端口。
-
-   copy 以后，既可以在 bashrc 中添加
-   `alias port_forward="bash /public/home/luoliheng/share/scripts/port_forward.sh"`
-   也可以删除脚本里的#号，bash 脚本一次以后，它在 bash 时就会自动 alias。
-
-   最后重启命令行就可以随时随地使用 `port_forward [port]`命令来进行端口转发了。如果不填 port 默认 8000。也可以直接在文件的第一行里修改默认值。
-
-- 有没有可能使 jupyter 运行之后自动转发呢？有可能，只是我目前不知道怎么做。
-- 附：协和高算计算节点对应的 IP:
-
-  ```
-  ## Management Ethernet Network ##
-  10.168.203.193        comput1        node1
-  10.168.203.2        comput2        node2
-  10.168.203.3        comput3        node3
-  10.168.203.4        comput4        node4
-  10.168.203.5        comput5        node5
-  10.168.203.[6-64]   comput[6-64]   node[6-64]
-  10.168.203.181      gpu1           node181
-  10.168.203.184      fat1           node184
-  10.168.203.188      admin1         node188
-  10.168.203.190      login1         node190
-  ```
+- `lsof -i :8000`可以查看当前自己的端口占用，但是并非能看到所有用户的，没反应的话建议换个端口重试
 
 # notebook 文件转换
 

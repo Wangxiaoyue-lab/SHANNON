@@ -7,6 +7,8 @@ Foundational tools for single-cell omics data analysis
 
 [https://scverse.org/packages/#core-packages](https://scverse.org/packages/#core-packages)
 
+### Data structures
+
 **anndata**
 [https://anndata.readthedocs.io/en/latest/](https://anndata.readthedocs.io/en/latest/)
 Anndata is a Python package for **handling annotated data matrices in memory and on disk**, positioned between pandas and xarray. anndata offers a broad range of computationally efficient features including, among others, sparse data support, lazy operations, and a PyTorch interface.
@@ -14,6 +16,12 @@ Anndata is a Python package for **handling annotated data matrices in memory and
 **mudata**
 [https://mudata.readthedocs.io/en/latest/](https://mudata.readthedocs.io/en/latest/)
 MuData is a format for **annotated multimodal datasets** where each modality is represented by an AnnData object. MuData's reference implementation is in Python, and the cross-language functionality is achieved via **HDF5-based .h5mu files with libraries in R and Julia**.
+
+**spatialdata**
+[https://github.com/scverse/spatialdata-io](https://github.com/scverse/spatialdata-io)
+SpatialData is a data framework that comprises **a FAIR storage format and a collection of python libraries for performant access, alignment, and processing of uni- and multi-modal spatial omics datasets.** This repository contains the core spatialdata library. See the links below to learn more about other packages in the SpatialData ecosystem.
+
+### Packages maintained by core team
 
 **scanpy**
 [https://scanpy.readthedocs.io/en/latest/](https://scanpy.readthedocs.io/en/latest/)
@@ -41,6 +49,7 @@ Squidpy is a **tool for the analysis and visualization of spatial molecular data
 A broader ecosystem of packages builds on the scverse core packages. These tools implement models and analytical approaches to tackle challenges in spatial omics, regulatory genomics, trajectory inference, visualization, and more.
 
 [https://github.com/morris-lab/CellOracle](https://github.com/morris-lab/CellOracle)
+A computational tool that integrates single-cell transcriptome and epigenome profiles to infer gene regulatory networks (GRNs), critical regulators of cell identity.
 
 ## MISSION
 
